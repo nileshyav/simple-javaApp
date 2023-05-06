@@ -1,4 +1,6 @@
+@Library('jenkins-shared-lib')
 def gv
+
 pipeline {
     agent {
     docker {
@@ -56,7 +58,8 @@ pipeline {
             //     sh 'docker push nileshyav/sample-java-spring-app:${BUILD_NUMBER} '
             //     }
             script{
-                gv.buildImage()
+                // gv.buildImage()
+                buildImage()
                 }
             }
         }
