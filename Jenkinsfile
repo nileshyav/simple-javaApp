@@ -72,7 +72,7 @@ pipeline {
             echo 'I will always say hello in the console.'
             slackSend channel: '#get-jenkins-alert',
                 color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}: \n * Job ${env.JOB_NAME} build NO ${env.BUILD_NUMBER} by : $BUILD_USER \n More info at: ${env.BUILD_URL}"
+                message: "*${currentBuild.currentResult}: \n * Job ${env.JOB_NAME} build NO ${env.BUILD_NUMBER} by : ${env.BUILD_USER} \n More info at: ${env.BUILD_URL}"
         }
     
     }
