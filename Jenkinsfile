@@ -1,4 +1,12 @@
 def gv
+def COLOR_MAP = [
+    'SUCCESS': 'good', 
+    'FAILURE': 'danger',
+]
+def getBuildUser() {
+    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
+}
+
 pipeline {
     agent {
     docker {
@@ -64,7 +72,7 @@ pipeline {
     post { 
         always { 
             script {
-               def BUILD_USER = getBuildUser()
+                BUILD_USER = getBuildUser()
             }
             echo 'I will always say hello in the console.'
             slackSend channel: '#get-jenkins-alert',
