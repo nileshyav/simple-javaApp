@@ -65,4 +65,14 @@ pipeline {
             }
         }
     }
+    post { 
+        always { 
+            
+            echo 'I will always say hello in the console.'
+            slackSend channel: '#get-jenkins-alert',
+                color: COLOR_MAP[currentBuild.currentResult],
+                message: "*${currentBuild.currentResult}: \n * Job :  ${env.JOB_NAME} \n *build NO ${env.BUILD_NUMBER} by : $env.BUILD_USER \n More info at: ${env.BUILD_URL}"
+        }
+    
+    }
 }
