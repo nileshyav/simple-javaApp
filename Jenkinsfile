@@ -3,7 +3,7 @@ def COLOR_MAP = [
     'SUCCESS': 'good', 
     'FAILURE': 'danger',
 ]
-def BUILD_USER = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
+// def BUILD_USER = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
 
 
 pipeline {
@@ -74,7 +74,7 @@ pipeline {
             echo 'I will always say hello in the console.'
             slackSend channel: '#get-jenkins-alert',
                 color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"
+                message: "*${currentBuild.currentResult}: \n * Job ${env.JOB_NAME} build NO ${env.BUILD_NUMBER} by : $UserIdCause \n More info at: ${env.BUILD_URL}"
         }
     
     }
