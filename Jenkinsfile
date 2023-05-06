@@ -3,6 +3,7 @@ def COLOR_MAP = [
     'SUCCESS': 'good', 
     'FAILURE': 'danger',
 ]
+def BUILD_USER = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
 
 
 pipeline {
