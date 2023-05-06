@@ -58,6 +58,7 @@ pipeline {
             //     sh 'docker push nileshyav/sample-java-spring-app:${BUILD_NUMBER} '
             //     }
             script{
+                echo "inside $BRANCH_NAME"
                 // gv.buildImage()
                 buildImage()
                 }
